@@ -32,6 +32,13 @@ public class Point {
         cluster = 0;
         mrange = 0;
     }
+
+    Point(Point get) {
+        x = get.x;
+        y = get.y;
+        
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     public double range(Point inp){
         double lenx = inp.x - x;
         double leny = inp.y - y;
@@ -39,6 +46,10 @@ public class Point {
     }
     @Override
     public String toString(){
-        return(String.format("%10.4f %10.4f %3d", x, y, cluster));
+        if (mass){
+            return(String.format("%10.4f %10.4f", x, y));
+        } else {
+            return(String.format("%10.4f %10.4f %3d  range: %4.2f", x, y, cluster, mrange));
+        }
     }
 }
